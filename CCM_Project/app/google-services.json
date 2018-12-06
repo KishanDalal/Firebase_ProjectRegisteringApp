@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "594150424837",
+    "firebase_url": "https://myccm-01.firebaseio.com",
+    "project_id": "myccm-01",
+    "storage_bucket": "myccm-01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594150424837:android:f9c4566e4110432f",
+        "android_client_info": {
+          "package_name": "k.dalal.ccm_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594150424837-eh114o1kknuhtqm25oi6r3vajh1c70et.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "k.dalal.ccm_project",
+            "certificate_hash": "1dee92019b4521e235c21abcc29556a81db864df"
+          }
+        },
+        {
+          "client_id": "594150424837-clu6qr002mj3457fm146nsv6qdvq3gj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQbBc-COx3IvxPX3kzIP1sqb3SzguXv3k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594150424837-clu6qr002mj3457fm146nsv6qdvq3gj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
