@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     Toast.makeText(getApplicationContext(), "Worked", Toast.LENGTH_LONG).show();
-                    //Intent intent1 = new Intent(MainActivity.this, HomePage.class);
-                    //startActivity(intent1);
+                    Intent intent1 = new Intent(MainActivity.this, HomePage.class);
+                    startActivity(intent1);
                 }
                 else
                 {
