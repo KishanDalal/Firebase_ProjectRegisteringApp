@@ -51,12 +51,14 @@ public class MainActivity extends AppCompatActivity {
         editTextPassword = (EditText)findViewById(R.id.inputLoginPassword);
         myPassword = editTextPassword.getText().toString().trim();
 
-        //Toast.makeText(getApplicationContext(), myPassword, Toast.LENGTH_SHORT).show();
+
+
 
 
         mAuth.signInWithEmailAndPassword(myEmail, myPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<AuthResult> task)
+            {
                 if(task.isSuccessful())
                 {
                     Toast.makeText(getApplicationContext(), "Worked", Toast.LENGTH_LONG).show();
@@ -65,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Nope", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
-
 
 
     }

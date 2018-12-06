@@ -94,28 +94,28 @@ public class mySignUp extends AppCompatActivity {
 
         if(myEmail.isEmpty())
         {
-            editTextEmail.setError("Email not there, You dumb fuck");
+            editTextEmail.setError("Please enter a email.");
             editTextEmail.requestFocus();
             return;
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(myEmail).matches())
         {
-            editTextEmail.setError("Email isn't valid, You dumb fuck");
+            editTextEmail.setError("Email is invalid, please try again.");
             editTextEmail.requestFocus();
             return;
         }
 
         if(myPassword.length()<6)
         {
-            editTextPassword.setError("Password is less then 6, you dumb fuck");
+            editTextPassword.setError("Password must be greater then 6 characters, please try again");
             editTextPassword.requestFocus();
             return;
         }
 
         if(myPassword.isEmpty())
         {
-            editTextPassword.setError("Password empty, you dumb fuck");
+            editTextPassword.setError("Please enter a password.");
             editTextPassword.requestFocus();
             return;
         }
@@ -126,22 +126,23 @@ public class mySignUp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(getApplicationContext(), "Welcome to the Application, Don't fuck it up.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Successfully Signed Up.", Toast.LENGTH_SHORT).show();
 
                             // Get user from Auth and add to RealTimeDB
                             User user = new User(myEmail, myPassword, myName);
                             FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
                             databaseReference.child(currentFirebaseUser.getUid()).setValue(user);
 
                         } else {
 
                             if(task.getException() instanceof FirebaseAuthUserCollisionException)
                             {
-                                Toast.makeText(getApplicationContext(), "You are already Registered, Fk you.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "You are already Registered.", Toast.LENGTH_LONG).show();
                             }
                             else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(getApplicationContext(), "Some error occurred, give up now!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "You have failed to sign in, sorry.", Toast.LENGTH_SHORT).show();
                             }
                         }
 

@@ -5,16 +5,19 @@ public class Project {
     private String projectName;
     private String projectDescription;
     private String projectSize;
-    private String[] projectStudents;
+    private String projectStudents;
 
-    public Project() {
 
-    }
 
-    public Project(String projectName, String projectDescription, String projectSize, String[] projectStudents) {
+    public Project(String projectName, String projectDescription, String projectSize) {
         this.projectName = projectName;
         this.projectDescription = projectDescription;
         this.projectSize = projectSize;
+
+    }
+
+    public Project(String projectStudents)
+    {
         this.projectStudents = projectStudents;
     }
 
@@ -42,11 +45,11 @@ public class Project {
         this.projectSize = projectSize;
     }
 
-    public String[] getProjectStudents() {
+    public String getProjectStudents() {
         return projectStudents;
     }
 
-    public void setProjectStudents(String[] projectStudents) {
+    public void setProjectStudents(String projectStudents) {
         this.projectStudents = projectStudents;
     }
 }
