@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.*;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,15 @@ import java.util.List;
 public class HomePage extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-    private RecyclerView mPeopleRv;
+    private DatabaseReference mDatabase1;
+
+    private RecyclerView recyclerView;
+    private ProjectAdapter adapter;
+    List<Project> projectList;
+
     private ListView mListView;
+    private TextView Name;
+    private TextView Email;
 
 
 
@@ -35,14 +43,55 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        mDatabase = FirebaseDatabase.getInstance().getReference("projects");
+
+        projectList = new ArrayList<>();
+
+        recyclerView = (RecyclerView) findViewById(R.id.mRecycler);
+        recyclerView.setHasFixedSize(true);
+
+        // Default Vertical
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        projectList.add(new Project("Apple", "Food", "3"));
+        projectList.add(new Project("Apple2", "Food", "3"));
+        projectList.add(new Project("Apple3", "Food", "3"));
+        projectList.add(new Project("Apple3", "Food", "3"));
+        projectList.add(new Project("Apple3", "Food", "3"));
+        projectList.add(new Project("Apple3", "Food", "3"));
+        projectList.add(new Project("Apple3", "Food", "3"));
+
+        adapter = new ProjectAdapter(this, projectList);
+        recyclerView.setAdapter(adapter);
+
+        //mDatabase = FirebaseDatabase.getInstance().getReference("projects");
+        //mDatabase1 = FirebaseDatabase.getInstance().getReference();
+
+        //mDatabase = FirebaseDatabase.getInstance().getReference("projects").orderByChild("projectName");
 
 
-        mListView = (ListView) findViewById(R.id.listView);
+        //mListView = (ListView) findViewById(R.id.listView);
+        Name = (TextView) findViewById(R.id.name);
+        Email = (TextView) findViewById(R.id.email);
+/*
+        FirebaseDatabase.getInstance().getReference().child("users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            User user = snapshot.getValue(User.class);
+
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
 
         FirebaseListAdapter<String> firebaseListAdapter = new FirebaseListAdapter<String>(this,
-                String.class, android.R.layout.simple_list_item_1, mDatabase.child("projectName")) {
+                String.class, android.R.layout.simple_list_item_1, mDatabase) {
             @Override
             protected void populateView(View v, String model, int position) {
 
@@ -53,7 +102,7 @@ public class HomePage extends AppCompatActivity {
 
         mListView.setAdapter(firebaseListAdapter);
 
-
+*/
     }
 
 

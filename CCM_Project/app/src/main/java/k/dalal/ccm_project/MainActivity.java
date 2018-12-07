@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerView mRecyclerView;
-    private WordListAdapter mAdapter;
+
     private final LinkedList<String> mWordList = new LinkedList<>();
     private List<Project> Project;
 
