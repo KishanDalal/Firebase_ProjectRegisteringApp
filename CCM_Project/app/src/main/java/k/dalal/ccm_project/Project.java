@@ -1,11 +1,13 @@
 package k.dalal.ccm_project;
 
+import java.util.List;
+
 public class Project {
 
-    private String projectName;
-    private String projectDescription;
-    private String projectSize;
-    private String projectStudents;
+    public String projectName;
+    public String projectDescription;
+    public String projectSize;
+    public String projectStudents;
 
 
 
@@ -52,4 +54,6 @@ public class Project {
     public void setProjectStudents(String projectStudents) {
         this.projectStudents = projectStudents;
     }
+
+    public List<Project> Project;
 }
