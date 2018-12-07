@@ -6,63 +6,64 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".mySignUp"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="73dp">
 
     <TextView
         android:id="@+id/lblName"
-        android:layout_width="75dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="140dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
         android:lineSpacingExtra="18sp"
         android:text="Name:"
+        android:textAlignment="center"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
         android:typeface="monospace"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="89dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="147dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="52dp"
         android:text="Password:"
         android:textAlignment="center"
         android:textColor="@color/browser_actions_text_color"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/inputPassword"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="296dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="22dp"
         android:fontFamily="serif"
         android:text="Register"
         android:textAlignment="center"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="30sp"
         android:typeface="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/inputEmail"
+        app:layout_constraintBottom_toTopOf="@+id/inputName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputName"
         android:layout_width="270dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="92dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="41dp"
         android:drawableRight="@drawable/ic_person_black_24dp"
         android:ems="10"
         android:fontFamily="serif"
@@ -70,16 +71,17 @@
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/browser_actions_bg_grey"
-        app:layout_constraintBottom_toTopOf="@+id/mySignUp"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/inputEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/inputEmail"
         android:layout_width="266dp"
         android:layout_height="0dp"
-        android:layout_marginTop="131dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="121dp"
         android:drawableRight="@drawable/ic_email_black_24dp"
         android:ems="10"
         android:hint="JohnDoe@gmail.com"
@@ -87,16 +89,18 @@
         android:textAlignment="center"
         android:textColor="@color/browser_actions_bg_grey"
         android:typeface="serif"
-        app:layout_constraintBottom_toTopOf="@+id/inputPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputName" />
 
     <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="265dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="247dp"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="207dp"
+        android:layout_marginBottom="48dp"
         android:drawableRight="@drawable/ic_lock_outline_black_24dp"
         android:ems="10"
         android:fontFamily="serif"
@@ -105,39 +109,44 @@
         android:textAlignment="center"
         android:textColor="@color/browser_actions_bg_grey"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
-        app:layout_constraintVertical_bias="0.568" />
+        app:layout_constraintEnd_toStartOf="@+id/mySignUp"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="79dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="145dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="monospace"
         android:text="Email:"
         android:textAlignment="center"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/inputEmail"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toStartOf="@+id/inputName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/lblName" />
 
     <Button
         android:id="@+id/mySignUp"
-        android:layout_width="222dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="27dp"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/com_facebook_button_background_color_selected"
         android:onClick="mySignUp"
         android:text="Sign Up"
         android:textAlignment="center"
         android:textColor="@color/buttonTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inputPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.964" />
 
 </android.support.constraint.ConstraintLayout>

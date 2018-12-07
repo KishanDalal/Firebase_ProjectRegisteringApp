@@ -95,7 +95,7 @@ public class AddProjects extends AppCompatActivity {
         Project project1 = new Project(currentFirebaseUser.getUid());
         databaseReference1.child(mProjectId).setValue(project1);
 
-        Intent intent = new Intent(this, HomePage.class);
+        Intent intent = new Intent(AddProjects.this, HomePage.class);
         startActivity(intent);
 
         Toast.makeText(this.getApplicationContext(), "Project has been created.", Toast.LENGTH_SHORT).show();
