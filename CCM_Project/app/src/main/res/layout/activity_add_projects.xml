@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddProjects"
+    android:background="@drawable/background"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="monospace"
+        android:fontFamily="serif"
         android:text="Size:"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextProjectSize"
@@ -29,7 +30,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="monospace"
+        android:fontFamily="serif"
         android:text="Description:"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextProjectDescription"
@@ -43,15 +44,17 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="serif"
         android:text="Project Creation"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/editTextProjectName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.361" />
+        app:layout_constraintVertical_bias="0.574" />
 
     <TextView
         android:id="@+id/textView9"
@@ -60,7 +63,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="monospace"
+        android:fontFamily="serif"
         android:text="Name:"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/editTextProjectName"
@@ -70,14 +73,16 @@
 
     <EditText
         android:id="@+id/editTextProjectDescription"
-        android:layout_width="210dp"
-        android:layout_height="0dp"
+        android:layout_width="241dp"
+        android:layout_height="66dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="260dp"
         android:ems="10"
+        android:hint="Jone Doe is a fictional character"
         android:inputType="textMultiLine"
+        android:textColor="@color/browser_actions_bg_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -87,26 +92,32 @@
 
     <EditText
         android:id="@+id/editTextProjectName"
-        android:layout_width="210dp"
+        android:layout_width="253dp"
         android:layout_height="0dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:hint="JohnDoe"
         android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/browser_actions_bg_grey"
         app:layout_constraintBottom_toTopOf="@+id/editTextProjectDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextProjectSize"
-        android:layout_width="210dp"
+        android:layout_width="244dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="80dp"
+
         android:ems="10"
         android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/browser_actions_bg_grey"
         app:layout_constraintBottom_toTopOf="@+id/addProject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView11" />
@@ -118,11 +129,27 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="50dp"
+        android:background="@color/com_facebook_button_background_color_selected"
+        android:fontFamily="serif"
         android:onClick="myProjectAdd"
         android:text="Add "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="62dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/com_facebook_button_background_color_selected"
+        android:text="Back"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

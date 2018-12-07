@@ -1,5 +1,6 @@
 package k.dalal.ccm_project;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -126,6 +127,9 @@ public class mySignUp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            Intent intent = new Intent(mySignUp.this, MainActivity.class);
+                            startActivity(intent);
+
                             Toast.makeText(getApplicationContext(), "Successfully Signed Up.", Toast.LENGTH_SHORT).show();
 
                             // Get user from Auth and add to RealTimeDB

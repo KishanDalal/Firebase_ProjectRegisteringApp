@@ -61,6 +61,34 @@ public class MainActivity extends AppCompatActivity {
         myPassword = editTextPassword.getText().toString().trim();
 
 
+        if(myEmail.isEmpty())
+        {
+            editTextEmail.setError("Please enter a email.");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(myEmail).matches())
+        {
+            editTextEmail.setError("Email is invalid, please try again.");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if(myPassword.length()<6)
+        {
+            editTextPassword.setError("Password must be greater then 6 characters, please try again");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if(myPassword.isEmpty())
+        {
+            editTextPassword.setError("Please enter a password.");
+            editTextPassword.requestFocus();
+            return;
+        }
+
 
 
 
@@ -70,13 +98,13 @@ public class MainActivity extends AppCompatActivity {
             {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(getApplicationContext(), "Worked", Toast.LENGTH_LONG).show();
+
                     Intent intent1 = new Intent(MainActivity.this, HomePage.class);
                     startActivity(intent1);
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "Nope", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Your email or your password is incorrect, please try again.", Toast.LENGTH_SHORT).show();
                 }
 
             }

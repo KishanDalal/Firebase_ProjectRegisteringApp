@@ -1,5 +1,6 @@
 package k.dalal.ccm_project;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -77,7 +78,6 @@ public class AddProjects extends AppCompatActivity {
             return;
         }
 
-
         // Get user from Auth and add to RealTimeDB
 
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -95,6 +95,9 @@ public class AddProjects extends AppCompatActivity {
         Project project1 = new Project(currentFirebaseUser.getUid());
         databaseReference1.child(mProjectId).setValue(project1);
 
-        Toast.makeText(this.getApplicationContext(), mProjectId, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+
+        Toast.makeText(this.getApplicationContext(), "Project has been created.", Toast.LENGTH_SHORT).show();
     }
 }

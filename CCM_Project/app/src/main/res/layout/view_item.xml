@@ -42,6 +42,7 @@
                         android:layout_width="31dp"
                         android:layout_height="50px"
                         android:layout_weight="1"
+                        android:fontFamily="serif"
                         android:text="Mango" />
 
                 </LinearLayout>
@@ -55,10 +56,11 @@
                     <TextView
                         android:id="@+id/textViewDescription"
                         android:layout_width="match_parent"
-                        android:layout_height="50px"
+                        android:layout_height="43dp"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
                         android:contentDescription="PlaceHolder"
+                        android:fontFamily="serif"
                         android:text="Mangos are Cute"
                         android:textStyle="bold" />
 
