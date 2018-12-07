@@ -24,6 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".mySignUp" />
+        <activity android:name=".HomePage" />
+        <activity android:name=".AddProjects"></activity>
     </application>
 
 </manifest>
