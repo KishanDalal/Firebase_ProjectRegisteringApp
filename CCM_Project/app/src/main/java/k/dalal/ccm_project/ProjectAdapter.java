@@ -32,10 +32,13 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     @NonNull
     @Override
     public ProjectViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        LayoutInflater inflater = LayoutInflater.from(mCtx);
+       /* LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.view_item, null); // CKk
         ProjectViewHolder holder = new ProjectViewHolder(view);
         return holder;
+        */
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.view_item, viewGroup, false);
+        return new ProjectViewHolder(view);
     }
 
     @Override

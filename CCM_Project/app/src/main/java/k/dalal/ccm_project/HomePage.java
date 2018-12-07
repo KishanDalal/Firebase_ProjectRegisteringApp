@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,18 +24,18 @@ import com.google.firebase.*;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class HomePage extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-    private DatabaseReference mDatabase1;
 
     private RecyclerView recyclerView;
     private ProjectAdapter adapter;
-    List<Project> projectList;
+    private  List<Project> projectList;
 
-    private ListView mListView;
+   // private ListView mListView;
     private TextView Name;
     private TextView Email;
 
@@ -54,55 +56,59 @@ public class HomePage extends AppCompatActivity {
         // Default Vertical
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        projectList.add(new Project("Apple", "Food", "3"));
-        projectList.add(new Project("Apple2", "Food", "3"));
-        projectList.add(new Project("Apple3", "Food", "3"));
-        projectList.add(new Project("Apple3", "Food", "3"));
-        projectList.add(new Project("Apple3", "Food", "3"));
-        projectList.add(new Project("Apple3", "Food", "3"));
-        projectList.add(new Project("Apple3", "Food", "3"));
 
-        adapter = new ProjectAdapter(this, projectList);
+        adapter = new ProjectAdapter(HomePage.this, projectList);
         recyclerView.setAdapter(adapter);
 
-        //mDatabase = FirebaseDatabase.getInstance().getReference("projects");
-        //mDatabase1 = FirebaseDatabase.getInstance().getReference();
+        // PROJECTS 
+        mDatabase = FirebaseDatabase.getInstance().getReference("projects");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                projectList.clear();
+                Iterable<DataSnapshot> dataSnapshotIterable = dataSnapshot.getChildren();
+                Iterator<DataSnapshot> iterator = dataSnapshotIterable.iterator();
+                while ((iterator.hasNext()))
+                {
+                    Project value = iterator.next().getValue(Project.class);
+                    projectList.add(value);
+                    adapter.notifyDataSetChanged();
+                }
 
-        //mDatabase = FirebaseDatabase.getInstance().getReference("projects").orderByChild("projectName");
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        //mListView = (ListView) findViewById(R.id.listView);
+            }
+        });
+
+        // USERS
+        mDatabase = FirebaseDatabase.getInstance().getReference("users");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                projectList.clear();
+                Iterable<DataSnapshot> dataSnapshotIterable = dataSnapshot.getChildren();
+                Iterator<DataSnapshot> iterator = dataSnapshotIterable.iterator();
+                while ((iterator.hasNext()))
+                {
+                    Project value = iterator.next().getValue(Project.class);
+                    projectList.add(value);
+                    adapter.notifyDataSetChanged();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         Name = (TextView) findViewById(R.id.name);
         Email = (TextView) findViewById(R.id.email);
-/*
-        FirebaseDatabase.getInstance().getReference().child("users")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            User user = snapshot.getValue(User.class);
 
-                        }
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                    }
-                });
-
-
-        FirebaseListAdapter<String> firebaseListAdapter = new FirebaseListAdapter<String>(this,
-                String.class, android.R.layout.simple_list_item_1, mDatabase) {
-            @Override
-            protected void populateView(View v, String model, int position) {
-
-                TextView textView = (TextView) v.findViewById(android.R.id.text1);
-                textView.setText(model);
-            }
-        };
-
-        mListView.setAdapter(firebaseListAdapter);
-
-*/
     }
 
 

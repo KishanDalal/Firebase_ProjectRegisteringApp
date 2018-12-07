@@ -9,7 +9,8 @@ public class Project {
     public String projectSize;
     public String projectStudents;
 
-
+    public Project() {
+    }
 
     public Project(String projectName, String projectDescription, String projectSize) {
         this.projectName = projectName;
